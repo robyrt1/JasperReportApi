@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8cbcbad9-790f-4fb6-af9a-2432e7c15b8b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="santa-clara"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="ireport.jasperserver.url" value="http://192.168.3.212:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin|sc"/>
+	<property name="ireport.jasperserver.report.resource" value="/Reports/customer_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/Reports/customer"/>
+	<parameter name="ParamPerson" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT nr_atendimento,
+	cd_pessoa_fisica,
+	dt_entrada,
+	nm_usuario,
+	cd_medico_resp,
+	ie_tipo_atendimento,
+	ie_status_atendimento
+FROM manager.ger_atendimento_paciente where cd_pessoa_fisica = $P{ParamPerson}]]>
+	</queryString>
+	<field name="nr_atendimento" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_atendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_atendimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<field name="cd_pessoa_fisica" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cd_pessoa_fisica"/>
+		<property name="com.jaspersoft.studio.field.label" value="cd_pessoa_fisica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<field name="dt_entrada" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="dt_entrada"/>
+		<property name="com.jaspersoft.studio.field.label" value="dt_entrada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<field name="nm_usuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_usuario"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_usuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<field name="cd_medico_resp" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cd_medico_resp"/>
+		<property name="com.jaspersoft.studio.field.label" value="cd_medico_resp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<field name="ie_tipo_atendimento" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ie_tipo_atendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="ie_tipo_atendimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<field name="ie_status_atendimento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ie_status_atendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="ie_status_atendimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_atendimento_paciente"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="5e0d2309-e3d6-4c2b-a7f4-95deca18feb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b357ab43-86e1-4f39-93db-45e92e8cd88a"/>
+				</reportElement>
+				<text><![CDATA[nr_atendimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="100" height="30" uuid="e05474c1-e121-4286-be4a-f50ecd358f3f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="598c7943-786d-46b4-8291-cfc40fbbb097"/>
+				</reportElement>
+				<text><![CDATA[cd_pessoa_fisica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="100" height="30" uuid="afb9182a-5298-49fd-afdf-343ada72a0cf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="55c38600-17f1-4107-894e-998dfa6fd45d"/>
+				</reportElement>
+				<text><![CDATA[dt_entrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="100" height="30" uuid="66afdd94-f125-4a4f-b61b-87d6c08d34ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05511935-4902-4da8-8f1f-4038859e7029"/>
+				</reportElement>
+				<text><![CDATA[ie_tipo_atendimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="100" height="30" uuid="300b15db-27b1-4104-b960-ae51c6cf0c6d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7474c8a9-816a-44d2-b0ac-4d77370228f9"/>
+				</reportElement>
+				<text><![CDATA[nm_usuario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="1c738cc7-34ce-4e5f-9bf6-2b321f71bc54">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b357ab43-86e1-4f39-93db-45e92e8cd88a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nr_atendimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="30" uuid="1957c4a7-d946-44be-9613-fd9c7aeb2bdb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="598c7943-786d-46b4-8291-cfc40fbbb097"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cd_pessoa_fisica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="100" height="30" uuid="326ff834-fd7f-462f-9fb5-49a595de1346">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="55c38600-17f1-4107-894e-998dfa6fd45d"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dt_entrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="100" height="30" uuid="f51c0744-aa7a-42d0-9d2c-24575748b945">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="05511935-4902-4da8-8f1f-4038859e7029"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ie_tipo_atendimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="100" height="30" uuid="12ee36b9-142f-4dda-8dde-f6ca7a7cfd71">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7474c8a9-816a-44d2-b0ac-4d77370228f9"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nm_usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
