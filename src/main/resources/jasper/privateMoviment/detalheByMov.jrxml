@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalheByMov" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="842" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="0" uuid="999ac82a-f362-45f5-9c86-892d1535891e">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[bWFuYWdlci5nZXJfdndfcHJvY2VkaW1lbnRvX3Bvcl9tb3ZpbW5ldGFjYW8gLDE1LDE1LDhiMjNl
+YWY3LThjNWUtNDEyNi04OGExLTIyNTg5YWNlYmExYzs=]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="santa-clara"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="646"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="354"/>
+	<parameter name="nr_seq_mov" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM manager.ger_vw_procedimento_por_movimnetacao
+WHERE 
+	 manager.ger_vw_procedimento_por_movimnetacao.nr_seq_mov = $P{nr_seq_mov}]]>
+	</queryString>
+	<field name="nr_sequencia" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_sequencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_sequencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="valor_procedimento" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="valor_procedimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="valor_procedimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="nr_pagamento" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_pagamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="cd_procedimento" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cd_procedimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="cd_procedimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="nr_seq_proc_interno" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_seq_proc_interno"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_seq_proc_interno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="nr_atendimento" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_atendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_atendimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="vlr_desc" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="vlr_desc"/>
+		<property name="com.jaspersoft.studio.field.label" value="vlr_desc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="nr_seq_motivo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_seq_motivo"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_seq_motivo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="ds_observacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ds_observacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="ds_observacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="ds_proc_exame" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ds_proc_exame"/>
+		<property name="com.jaspersoft.studio.field.label" value="ds_proc_exame"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="nr_seq_mov" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_seq_mov"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_seq_mov"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<field name="cd_categoria_procedimento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cd_categoria_procedimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="cd_categoria_procedimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_vw_procedimento_por_movimnetacao"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement mode="Opaque" x="30" y="0" width="781" height="30" backcolor="#E3E3E3" uuid="82d1c8e4-7d08-43d1-8203-c6d4c06a858a"/>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="30" uuid="bfcace69-2806-4df3-a252-39ce8932a75b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be5a8070-0e6f-46b2-b2ff-a215d27ce4bb"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Procedimento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="190" y="0" width="100" height="30" uuid="d48c99ea-9980-45ca-a94c-5b841b70a1d9">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6194a921-72bf-42df-bb59-9b83575fcdb0"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Setor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="0" width="100" height="30" uuid="155568fc-743b-41e4-8e00-b5e10741f4f4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a07484e-430e-4507-906b-43afbb7e4f08"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="634" y="0" width="100" height="30" uuid="ce6adf20-80dc-4323-96fc-a5a7c47c4ed4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="26d16c89-3288-482a-8693-16f356a861fa"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[N° Pag]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="100" height="30" uuid="c191ab2a-4f5d-49ac-8737-f165748349e8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be5a8070-0e6f-46b2-b2ff-a215d27ce4bb"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ds_proc_exame}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="100" height="30" uuid="b8fae1b7-6498-452f-827f-f7757a96d4b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6194a921-72bf-42df-bb59-9b83575fcdb0"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cd_categoria_procedimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="30" uuid="28fcc67b-20df-4045-8ab2-feb9b0ab89d3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a07484e-430e-4507-906b-43afbb7e4f08"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valor_procedimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="664" y="0" width="100" height="30" uuid="e55f0c72-2508-4ae9-902b-f99abfdefa4d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="26d16c89-3288-482a-8693-16f356a861fa"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nr_pagamento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

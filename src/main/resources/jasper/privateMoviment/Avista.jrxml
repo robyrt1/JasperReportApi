@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Avista" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df013db5-f76e-44d3-b0df-bcbc46d93160">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="santa-clara"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" fontName="SansSerif" fontSize="50" isBold="true"/>
+	<style name="SubTitle" forecolor="#736343" fontName="SansSerif" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="SansSerif" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="SansSerif" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="DATE_INICIO" class="java.lang.String"/>
+	<parameter name="DATE_FIM" class="java.lang.String"/>
+	<parameter name="nr_seq_conta_caixa_movimentacao" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$F{nr_seq_conta_caixa_movimentacao}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select initcap(ger_pessoa_fisica.nm_pessoa_fisica) as nm_paciente
+  ,
+  to_char(a.dt_movimentacao, 'dd/mm/yyyy hh24:mi') as dt_movimentacao,
+  a.*,
+  ger_unidade.nm_unidade
+  from manager.ger_relarotio_caixa_avista a
+  left join manager.ger_pessoa_fisica on a.cd_pessoa_fisica =  ger_pessoa_fisica.cd_pessoa_fisica
+  join manager.ger_unidade on a.cd_unidade_basica = ger_unidade.cd_unidade
+  where  1=1
+  AND A.DS_DIRECAO_MOVIMENTACAO = 'Entrada'
+  AND a.tipo_pagamento NOT IN ('FECHAMENTO DE CAIXA', 'FUNDO DE CAIXA', 'PAGAMENTO POSTERIOR')
+  AND a.dt_abertura::date BETWEEN TO_DATE($P{DATE_INICIO}::text, 'DD/MM/YYYY') AND TO_DATE($P{DATE_FIM}::text , 'DD/MM/YYYY')]]>
+	</queryString>
+	<field name="nm_paciente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_paciente"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_paciente"/>
+	</field>
+	<field name="dt_movimentacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="dt_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="dt_movimentacao"/>
+	</field>
+	<field name="nr_seq_conta_caixa" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_seq_conta_caixa"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_seq_conta_caixa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="nm_usuario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_usuario"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_usuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="dt_abertura" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="dt_abertura"/>
+		<property name="com.jaspersoft.studio.field.label" value="dt_abertura"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="dt_fechamento" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="dt_fechamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="dt_fechamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="vl_total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="vl_total"/>
+		<property name="com.jaspersoft.studio.field.label" value="vl_total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="nr_seq_conta_caixa_movimentacao" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_seq_conta_caixa_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_seq_conta_caixa_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="nr_seq_tipo_movimentacao" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_seq_tipo_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_seq_tipo_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="ds_direcao_movimentacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ds_direcao_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="ds_direcao_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="tipo_pagamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipo_pagamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipo_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="vl_movimentacao" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="vl_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.label" value="vl_movimentacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="nr_pagamento" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nr_pagamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="cd_pessoa_fisica" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cd_pessoa_fisica"/>
+		<property name="com.jaspersoft.studio.field.label" value="cd_pessoa_fisica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="cd_unidade_basica" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cd_unidade_basica"/>
+		<property name="com.jaspersoft.studio.field.label" value="cd_unidade_basica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="nr_atendimento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nr_atendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="nr_atendimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="ds_convenio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ds_convenio"/>
+		<property name="com.jaspersoft.studio.field.label" value="ds_convenio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="cod_transacao_cartao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cod_transacao_cartao"/>
+		<property name="com.jaspersoft.studio.field.label" value="cod_transacao_cartao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="ie_status_atendimento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ie_status_atendimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="ie_status_atendimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="ie_status_pagamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ie_status_pagamento"/>
+		<property name="com.jaspersoft.studio.field.label" value="ie_status_pagamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_relarotio_caixa_avista"/>
+	</field>
+	<field name="nm_unidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_unidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_unidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="ger_unidade"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="270" y="0" width="263" height="62" uuid="bc1ce1da-8232-46ea-be55-cec4abb986dd"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Relatório]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="303" y="62" width="196" height="22" uuid="f6a78448-8260-4445-a9e0-e3fb53b080d9"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Movimentação Particular]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="-21" y="1" width="843" height="24" forecolor="#CCCCCC" backcolor="#D4D4D4" uuid="5d8169bd-4a75-48c8-8a68-6d3ad5ba9402"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="771" y="-1" width="40" height="20" forecolor="#030303" uuid="e5e27efa-b599-499b-9ca3-848cb511cb7b"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="691" y="-1" width="80" height="20" forecolor="#030303" uuid="18cfe1ca-f7d6-48b0-9827-28578b42a5e0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="24" y="-1" width="197" height="20" forecolor="#030303" uuid="fbce24bb-3cb1-44a3-8eec-8c067ddbe5b5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="e9d2002a-c8ee-4649-a258-640dad29110c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="802" height="1" uuid="4bbd3e06-6a98-4379-ad98-73a250fef8cb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="18" backcolor="rgba(227, 227, 227, 0.93333334)" uuid="ad0c2c9b-4cab-4dff-9bc4-0ea9041ec34e"/>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="16" uuid="4eeda301-5fc7-4124-b078-ab85d9a7e275">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07b1fa6c-4ddc-44e8-98d2-5c310e6423ac"/>
+					</reportElement>
+					<box>
+						<pen lineColor="rgba(0, 0, 0, 0.63529414)"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Operador]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="-4" width="100" height="21" uuid="6cdd5d55-54fa-4481-9ae2-6e05ed532426">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7491c7af-5c80-4d96-bbca-1c28ed668abb"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Dt Registro]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="220" y="-3" width="100" height="21" uuid="0af25f89-9411-4912-98c6-4ff8f5de2ec3">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7b38faa8-6e7d-4c4e-9a95-cebcfb735bf4"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[N° Registro]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="330" y="0" width="100" height="18" uuid="fd9733f2-4074-4814-b4b8-eb888a53badc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62a70ee5-7a01-4784-b58b-dd919d9e773f"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Paciente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="442" y="0" width="100" height="18" uuid="6e46e0ef-bdad-4d39-9730-62a84ac16068">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39b181f6-d56b-41b1-9c46-bce544c24770"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Form Pagamento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="552" y="0" width="100" height="18" uuid="d588f6cc-a4d2-4c03-85ce-b67451214493">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c673963-f656-4195-86dd-2a3e93b54890"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Transação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="660" y="0" width="100" height="18" uuid="ad8fae5a-2171-4df9-96c4-715b6e83dc5a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="593aabd9-24a9-4168-91f1-c05bb22686ee"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Entrada]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="111" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="30" backcolor="rgba(201, 201, 201, 0.9254902)" uuid="ed5f3e5e-eb94-43e0-97a9-7b9c46fd5d60"/>
+				<textField>
+					<reportElement x="0" y="0" width="100" height="30" uuid="9cc94527-be43-4fe1-8e0b-615fb3152c74">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="07b1fa6c-4ddc-44e8-98d2-5c310e6423ac"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nm_usuario}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="110" y="0" width="100" height="30" uuid="9f0f868d-e321-4eec-bfe9-791663cd3700">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7491c7af-5c80-4d96-bbca-1c28ed668abb"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{dt_movimentacao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="220" y="0" width="100" height="30" uuid="3dd84c48-a1da-4d31-818f-a765bd94d322">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7b38faa8-6e7d-4c4e-9a95-cebcfb735bf4"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nr_seq_conta_caixa_movimentacao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="330" y="0" width="100" height="30" uuid="db6a8fe2-55b3-494e-af2c-3e0bd98b68e9">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62a70ee5-7a01-4784-b58b-dd919d9e773f"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nm_paciente}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="442" y="0" width="100" height="30" uuid="7ce0d5cf-5233-464e-9eb0-3852f15c920a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39b181f6-d56b-41b1-9c46-bce544c24770"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{tipo_pagamento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="551" y="0" width="100" height="30" uuid="93ace2f4-b0f4-422c-8c6b-301aee574c73">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c673963-f656-4195-86dd-2a3e93b54890"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{cod_transacao_cartao} == null ? "-" : $F{cod_transacao_cartao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="660" y="0" width="100" height="30" uuid="f77cf545-50e5-4ed6-b9c0-85bbf525316e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="593aabd9-24a9-4168-91f1-c05bb22686ee"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{ds_direcao_movimentacao}.equals("Entrada") ? $F{vl_movimentacao} : 0.0]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport>
+				<reportElement mode="Opaque" x="-21" y="30" width="843" height="81" uuid="c32fdbb4-e244-4583-b6e2-6669763831a2">
+					<property name="com.jaspersoft.studio.element.name" value="hahahaha"/>
+				</reportElement>
+				<subreportParameter name="nr_seq_mov">
+					<subreportParameterExpression><![CDATA[$F{nr_seq_conta_caixa_movimentacao}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["src/main/resources/jasper/privateMoviment/detalheByMov.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="fa5e88d5-a011-4e32-8f12-ce923f903111"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
