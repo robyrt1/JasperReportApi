@@ -27,7 +27,8 @@ public class ReportTestController {
     public ResponseEntity<byte[]> generateReport(@RequestBody PacientService pacientService) {
         try {
             byte[] pdfBytes =  this.reportTestService.execute(pacientService);
-              HttpHeaders headers = new HttpHeaders();
+            
+            HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_PDF);
             headers.setContentDispositionFormData("attachment", "report.pdf");
             headers.setContentLength(pdfBytes.length);
