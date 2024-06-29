@@ -27,13 +27,10 @@ public class PrivateMovementService {
     public byte[] execute(PrivateMovementInputDto input) {
         Map<String, Object> params = new HashMap<>();
 
-        // params.put("DATE_INICIO", "26/06/2024");
-        // params.put("DATE_FIM", "26/06/2024");
         params.put("DATE_INICIO", input.DateStart);
         params.put("DATE_FIM", input.DateEnd);
         try {
 
-            LOGGER.debug("Input Request>>>>", params);
             String pathAbsolute = utilsShared.getAbsolutePath(PATH, ARQ_JRXML);
 
             return this.jasperReportShrared.generate(pathAbsolute, params, "");
